@@ -7,8 +7,11 @@ stf_download_information(sequencia, dir = "data-raw/informacoes")
 informacoes <- read_stf_information(path = "data-raw/informacoes")
 informacoes
 
-stf_download_details(informacoes$incidente, dir = "data-raw/informacoes")
-detalhes <- read_stf_details(path="data-raw/informacoes")
+stf_download_details(informacoes$incidente, dir = "data-raw/detalhes")
+detalhes <- read_stf_details(path="data-raw/detalhes")
 
-stf_download_parties(detalhes$incidente, dir = "data-raw/informacoes")
-partes <- stf_read_parties(path="data-raw/informacoes")
+stf_download_parties(detalhes$incidente, dir = "data-raw/partes")
+partes <- stf_read_parties(path="data-raw/partes")
+
+stf_download_sheet(detalhes$incidente, dir = "data-raw/andamento")
+andamento <- read_stf_docket_sheet(path="data-raw/andamento")
